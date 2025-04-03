@@ -6,7 +6,7 @@ learn and store several type of information from the learning process and the wi
 The proposed learning algorithm is a gradient-free and model-free based nonlinear control law ([arXiv:1202.4707](https://arxiv.org/pdf/1202.4707)).
 
 
-The proposed contribution is to use the [Para-model control](https://loicmichelcontrol.github.io/website/portfolio/) as an alternative learning algorithm for a growing neural network, whose topology is updated on-line. 
+The proposed contribution is to use the [Para-Model Control](https://loicmichelcontrol.github.io/website/portfolio/) as an alternative learning algorithm for a growing neural network, whose topology is updated on-line. 
 Each synaptic weight is updated in a real-time closed-loop following tracking references associated to the data training, hence allowing an online learning process that is expected to be robust towards network topology changes.
 Moreover, each neuron propagates also some statistic information from the connexions (or wires), like e.g. the mean and standard deviation of the weights. This would allow (over a long term!) mixing statistics 
 from multiple neurons / clusters of neurons and make correlations between the trained neurons in order to take iterative decisions...
@@ -24,7 +24,7 @@ The goal (for future versions) is <ins> to propage the neural information </ins>
 This would introduce spatial clustering and the possibility to use probabilistic-based inference strategies. 
 <div align="center"> <img width="500" alt="NeuralNetwork" src="./figures/NeuralNetwork.png"> </div> 
 <em>Fig. 1 - Illustration of the connectome-perspective of the proposed growing neural network for 'n' inputs (I_n) and 'n' outputs (O_n): to update the synaptic weights W_1, W_2,..., W_n, the learning process is based on a closed-loop control 
-algorithm and the trained neurons propage simultaneously some statistic information about the synaptic weigths. </em>
+algorithm and the trained neurons propage simultaneously some statistic information about the synaptic weights. </em>
 
 
 ## Getting started and Training the network:
@@ -32,7 +32,7 @@ algorithm and the trained neurons propage simultaneously some statistic informat
 To reproduce the results presented in the repository, simply run 'NetPMC_v1_0beta1.m' by setting 'GraphDisplay = 0' to get only the results /or/ set 'GraphDisplay = 1' to watch the network evolving in association with the tracking dynamics of each neuron.
 
 The training is performed considering a very basic example that consists in learning the derivative of a sine function vs. time. 
-Figures 2 and 3 presents the evolution of the synaptic weigths of the training phase.
+Figures 2 and 3 presents the evolution of the synaptic weights of the training phase.
 
 <img width="1500" alt="training_example" src="./figures/training_example.png">
 <em>Fig. 2 - Example of evolution of the synaptic weights w.r.t. the learning of the variations of a sine function. </em>
@@ -74,9 +74,9 @@ This is a work under progress. Any feedback or suggestion are very welcome!
 
 # References
 
-[1] K. Taras, N. Bredeche and R. Doursat (Editors), Growing Adaptive Machines: Combining Development and Learning in Artificial Neural Networks, Studies in Computational Intelligence, Springer Berlin, Heidelberg, 2014.
+[1] L. Michel, A para-model agent for dynamical systems, arXiv:1202.4707, 2012.
 
-[2] L. Michel, A para-model agent for dynamical systems, arXiv:1202.4707, 2012.
+[2] K. Taras, N. Bredeche and R. Doursat (Editors), Growing Adaptive Machines: Combining Development and Learning in Artificial Neural Networks, Studies in Computational Intelligence, Springer Berlin, Heidelberg, 2014.
 
 [3] J.E. Gaudio, T.E. Gibson, A.M. Annaswamy, M.A. Bolender and E. Lavretsky, "Connections Between Adaptive Control and Optimization in Machine Learning," 2019 IEEE 58th Conference on Decision and Control (CDC), Nice, France, pp. 4563-4568, 2019.
 
