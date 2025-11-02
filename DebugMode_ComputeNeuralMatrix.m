@@ -328,16 +328,31 @@ ii = 0;
 
             end
 
-       
+
             % 7 / Compute the product between weigth and neurons
-    
+            % GRANULARITY EXTENSION: Compute outputs for all input combinations
+
+            % Call granular computation function
+            GranularOutputs = ComputeGranularNodeOutputs(CommonNeuron, CommonWiring_sort);
+
+            % Maintain backward compatibility: extract single output for each node
             for row = 1:length( CommonNeuron(:,1,1) )
-
-                le_CommonNeuron = length( CommonNeuron(1,:,1) );
-                Prod(row) = CommonNeuron(row, 2:le_CommonNeuron, 2 ) * CommonWiring_sort(row, 2:le_CommonNeuron, 2 )';
+                % Get the traditional single output (all inputs combined)
+                Prod(row) = GranularOutputs{row}.SingleOutput;
                 CommonNeuron(row, 1, 2 ) = Prod(row); % set new measures to the CommonNeuron(:,2)
-
             end
+
+            % OPTIONAL: Display granular outputs for debugging
+            % Uncomment the following section to see all combination outputs
+             fprintf('\n=== GRANULAR OUTPUTS ===\n');
+             for row = 1:length(GranularOutputs)
+                 fprintf('Node %d: %d inputs -> %d output combinations\n', ...
+                     GranularOutputs{row}.NodeID, ...
+                     GranularOutputs{row}.NumInputs, ...
+                     size(GranularOutputs{row}.OutputMatrix, 1));
+                 disp('Output Matrix [Value | Mask]:');
+                 disp(GranularOutputs{row}.OutputMatrix);
+             end
 
             % 8 / Update the NeuronWeigthList with the computed product
 
